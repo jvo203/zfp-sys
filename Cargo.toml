@@ -6,5 +6,9 @@ edition = "2018"
 
 [build-dependencies]
 bindgen = "*"
+metadeps = "*"
+
+[package.metadata.pkg-config]
+zfp = "0.5.4"
 
 [dependencies]

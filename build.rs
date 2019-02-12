@@ -1,4 +1,5 @@
 extern crate bindgen;
+extern crate metadeps;
 
 use std::env;
 use std::path::PathBuf;
@@ -6,6 +7,9 @@ use std::path::PathBuf;
 fn main() {
     // Tell cargo to tell rustc to link the system zfp
     // shared library.
+    let libs = metadeps::probe().unwrap();
+    //let zfp = libs.get("zfp").unwrap();
+
     println!("cargo:rustc-link-lib=zfp");
 
     // The bindgen::Builder is the main entry point
