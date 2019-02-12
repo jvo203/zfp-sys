@@ -8,6 +8,7 @@ fn main() {
     //build zfp with cmake
     let zfp = cmake::build("zfp-0.5.4");
     println!("cargo:rustc-link-search=native={}/lib", zfp.display());
+    println!("cargo:rustc-link-search=native={}/lib64", zfp.display());
     println!("cargo:rustc-link-lib=zfp");
 
     // The bindgen::Builder is the main entry point
