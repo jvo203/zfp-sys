@@ -1,15 +1,13 @@
 extern crate bindgen;
-extern crate metadeps;
 
+use cmake;
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Tell cargo to tell rustc to link the system zfp
-    // shared library.
-    let libs = metadeps::probe().unwrap();
-    //let zfp = libs.get("zfp").unwrap();
-
+    //build zfp with cmake
+    let zfp = cmake::build("zfp-0.5.4");
+    println!("cargo:rustc-link-search=native={}/lib", zfp.display());
     println!("cargo:rustc-link-lib=zfp");
 
     // The bindgen::Builder is the main entry point
@@ -20,6 +18,9 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
+        // add the location of zfp header files
+        .clang_arg("-I")
+        .clang_arg(format!("{}/include", zfp.display()))
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
