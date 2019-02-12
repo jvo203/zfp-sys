@@ -7,7 +7,7 @@ description = "Raw Rust bindings to ZFP"
 license-file = "LICENSE"
 
 [build-dependencies]
-bindgen = "*"
-cmake = "*"
+bindgen = "0.47.1"
+cmake = "0.1.35"
 
 [dependencies]
