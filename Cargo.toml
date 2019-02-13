@@ -6,6 +6,7 @@ edition = "2018"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
 repository = "https://github.com/jvo203/zfp-sys"
 license = "MIT"
+categories = ["compression", "external-ffi-bindings", "science"]
 
 [build-dependencies]
 bindgen = "0.47.1"
