@@ -3,11 +3,10 @@ name = "zfp-sys"
 version = "0.1.0"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
 edition = "2018"
-description = "Raw Rust bindings to ZFP"
-license-file = "LICENSE"
+description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
+repository = "https://github.com/jvo203/zfp-sys"
+license = "MIT"
 
 [build-dependencies]
 bindgen = "0.47.1"
 cmake = "0.1.35"
-
-[dependencies]
