@@ -53,6 +53,9 @@ mod zfp {
         /*  zfp_stream_set_precision(zfp, precision); */
         unsafe { zfp_stream_set_accuracy(zfp, tolerance) };
 
+        #[cfg(feature = "cuda")]
+        unsafe { zfp_stream_set_execution(zfp, zfp_exec_policy_zfp_exec_cuda) };
+
         /* allocate buffer for compressed data */
         let bufsize = unsafe { zfp_stream_maximum_size(zfp, field) };
         let mut buffer: Vec<u8> = vec![0; bufsize];

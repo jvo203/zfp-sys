@@ -1,12 +1,25 @@
 extern crate bindgen;
 
+#[cfg(not(feature = "cuda"))]
 use cmake;
+
+#[cfg(feature = "cuda")]
+use cmake::Config;
+
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
     //build zfp with cmake
+    #[cfg(not(feature = "cuda"))]
     let zfp = cmake::build("zfp-0.5.4");
+
+    //enable CUDA for faster compression/decompression
+    #[cfg(feature = "cuda")]
+    let zfp = Config::new("zfp-0.5.4")
+        .define("ZFP_WITH_CUDA","ON")
+        .build();
+
     println!("cargo:rustc-link-search=native={}/lib", zfp.display());
     println!("cargo:rustc-link-search=native={}/lib64", zfp.display());
     println!("cargo:rustc-link-lib=zfp");

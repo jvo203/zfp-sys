@@ -1,6 +1,6 @@
 [package]
 name = "zfp-sys"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
 edition = "2018"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
@@ -11,3 +11,7 @@ categories = ["compression", "external-ffi-bindings", "science"]
 [build-dependencies]
 bindgen = "0.47.1"
 cmake = "0.1.35"
+
+[features]
+default = []
+cuda = []
