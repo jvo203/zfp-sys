@@ -28,9 +28,7 @@ mod zfp {
             }
         }
 
-        println!("original data sample: {:?}", &array[0..nx]);
-
-        let tolerance = 1.0e-3;
+        println!("original data sample: {:?}", &array[0..nx]);        
 
         //compression
         /* allocate meta data for the 3D array a[nz][ny][nx] */
@@ -49,9 +47,10 @@ mod zfp {
         let zfp = unsafe { zfp_stream_open(std::ptr::null_mut() as *mut bitstream) };
 
         /* set compression mode and parameters via one of three functions */
-        /*  zfp_stream_set_rate(zfp, rate, type, 3, 0); */
+        unsafe { zfp_stream_set_rate(zfp, 8.0, data_type, 3, 0) };
         /*  zfp_stream_set_precision(zfp, precision); */
-        unsafe { zfp_stream_set_accuracy(zfp, tolerance) };
+        //let tolerance = 1.0e-3;
+        //unsafe { zfp_stream_set_accuracy(zfp, tolerance) };
 
         #[cfg(feature = "cuda")]
         unsafe { zfp_stream_set_execution(zfp, zfp_exec_policy_zfp_exec_cuda) };
