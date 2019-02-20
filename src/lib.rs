@@ -28,7 +28,7 @@ mod zfp {
             }
         }
 
-        println!("original data sample: {:?}", &array[0..nx]);        
+        println!("original data sample: {:?}", &array[0..nx]);
 
         //compression
         /* allocate meta data for the 3D array a[nz][ny][nx] */
@@ -53,7 +53,14 @@ mod zfp {
         //unsafe { zfp_stream_set_accuracy(zfp, tolerance) };
 
         #[cfg(feature = "cuda")]
-        unsafe { zfp_stream_set_execution(zfp, zfp_exec_policy_zfp_exec_cuda) };
+        {
+            let ret = unsafe { zfp_stream_set_execution(zfp, zfp_exec_policy_zfp_exec_cuda) };
+
+            if ret == 0 {
+                println!("failed to set the execution policy to zfp_exec_cuda");
+                assert!(false);
+            }
+        }
 
         /* allocate buffer for compressed data */
         let bufsize = unsafe { zfp_stream_maximum_size(zfp, field) };

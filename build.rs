@@ -17,7 +17,7 @@ fn main() {
     //enable CUDA for faster compression/decompression
     #[cfg(feature = "cuda")]
     let zfp = Config::new("zfp-0.5.4")
-        .define("ZFP_WITH_CUDA","ON")
+        .define("ZFP_WITH_CUDA", "ON")
         .build();
 
     println!("cargo:rustc-link-search=native={}/lib", zfp.display());
