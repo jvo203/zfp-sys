@@ -10,13 +10,19 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    #[cfg(feature = "0_5_5")]
+    let source_dir = String::from("zfp-0.5.5");
+
+    #[cfg(feature = "0_5_4")]
+    let source_dir = String::from("zfp-0.5.4");
+
     //build zfp with cmake
     #[cfg(not(feature = "cuda"))]
-    let zfp = cmake::build("zfp-0.5.4");
+    let zfp = cmake::build(source_dir);
 
     //enable CUDA for faster compression/decompression
     #[cfg(feature = "cuda")]
-    let zfp = Config::new("zfp-0.5.4")
+    let zfp = Config::new(source_dir)
         .define("ZFP_WITH_CUDA", "ON")
         .build();
 
