@@ -13,5 +13,7 @@ bindgen = "*"
 cmake = "*"
 
 [features]
-default = []
+default = ["0_5_5"]
 cuda = []
+0_5_5 = []
+0_5_4 = []
