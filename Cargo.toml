@@ -15,5 +15,4 @@ cmake = "*"
 [features]
 default = []
 cuda = []
-0_5_5 = []
 0_5_4 = []
