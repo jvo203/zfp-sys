@@ -10,9 +10,7 @@ categories = ["compression", "external-ffi-bindings", "science"]
 
 [build-dependencies]
 bindgen = "*"
-#"0.47.1"
 cmake = "*"
-#"0.1.35"
 
 [features]
 default = []
