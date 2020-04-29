@@ -11,6 +11,7 @@ categories = ["compression", "external-ffi-bindings", "science"]
 [build-dependencies]
 bindgen = "*"
 cmake = "*"
+cc = "*"
 
 [features]
 default = []
