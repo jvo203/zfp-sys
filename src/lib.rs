@@ -64,7 +64,7 @@ mod zfp {
 
         /* allocate buffer for compressed data */
         let bufsize = unsafe { zfp_stream_maximum_size(zfp, field) };
-        let mut buffer: Vec<u8> = vec![0; bufsize];
+        let mut buffer: Vec<u8> = vec![0; bufsize as usize];
 
         /* associate bit stream with allocated buffer */
         let stream = unsafe { stream_open(buffer.as_mut_ptr() as *mut std::ffi::c_void, bufsize) };
