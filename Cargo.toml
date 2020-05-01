@@ -5,6 +5,7 @@ authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
 edition = "2018"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
 repository = "https://github.com/jvo203/zfp-sys"
+readme = "README.md"
 license = "MIT"
 categories = ["compression", "external-ffi-bindings", "science"]
 
