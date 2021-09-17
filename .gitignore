@@ -8,3 +8,5 @@ Cargo.lock
 #Microsoft Visual Code IDE
 /.vscode/
 
+#IntelliJ IDEA
+.idea/
