@@ -33,7 +33,7 @@ fn main() {
     // to bindgen, and lets you build up options for
     // the resulting bindings.
     let bindings = bindgen::Builder::default()
-        .blacklist_type("max_align_t")
+        .blocklist_type("max_align_t")
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
