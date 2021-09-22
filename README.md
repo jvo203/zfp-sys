@@ -28,6 +28,8 @@ This also removes OpenMP support from the library, to remove the dependency on
 the dynamically linked OpenMP library.
 
 ### Example
+
+```
 use zfp_sys::*;
 
 fn compress_array() {
@@ -130,3 +132,4 @@ fn compress_array() {
 
         assert!(true);
     }
+```
