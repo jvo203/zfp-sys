@@ -16,18 +16,27 @@ fn main() {
     let _source_dir = String::from("zfp-0.5.4");
 
     //build zfp with cmake
-    #[cfg(not(feature = "cuda"))]
-    let zfp = cmake::build(_source_dir);
+    let mut config = cmake::Config::new(_source_dir);
 
     //enable CUDA for faster compression/decompression
     #[cfg(feature = "cuda")]
-    let zfp = Config::new(_source_dir)
-        .define("ZFP_WITH_CUDA", "ON")
-        .build();
+    config.define("ZFP_WITH_CUDA", "ON");
+
+    // Build a static library
+    #[cfg(feature = "static")]
+    {
+        config.define("BUILD_SHARED_LIBS", "OFF");
+        config.define("ZFP_WITH_OPENMP", "OFF");
+    }
+
+    let zfp = config.build();
 
     println!("cargo:rustc-link-search=native={}/lib", zfp.display());
     println!("cargo:rustc-link-search=native={}/lib64", zfp.display());
+    #[cfg(not(feature = "static"))]
     println!("cargo:rustc-link-lib=zfp");
+    #[cfg(feature = "static")]
+    println!("cargo:rustc-link-lib=static=zfp");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
