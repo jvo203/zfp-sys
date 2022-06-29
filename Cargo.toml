@@ -2,7 +2,7 @@
 name = "zfp-sys"
 version = "0.1.11"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
-edition = "2018"
+edition = "2021"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
 repository = "https://github.com/jvo203/zfp-sys"
 readme = "README.md"
