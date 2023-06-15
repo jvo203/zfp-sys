@@ -54,9 +54,9 @@ fn compress_array() {
             zfp_field_3d(
                 array.as_mut_ptr() as *mut std::ffi::c_void,
                 data_type,
-                nx as u32,
-                ny as u32,
-                nz as u32,
+                nx as usize,
+                ny as usize,
+                nz as usize,
             )
         };
 
