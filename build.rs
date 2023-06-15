@@ -10,10 +10,7 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    let _source_dir = String::from("zfp-0.5.5");
-
-    #[cfg(feature = "0_5_4")]
-    let _source_dir = String::from("zfp-0.5.4");
+    let _source_dir = String::from("zfp-1.0.0");
 
     //build zfp with cmake
     let mut config = cmake::Config::new(_source_dir);
