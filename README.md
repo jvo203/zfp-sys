@@ -1,10 +1,6 @@
 # zfp-sys
 Raw Rust bindings to ZFP (https://github.com/LLNL/zfp).
 
-## Crate features
-
-This crate allows a number of tweaks to compilation via crate features.
-
 ### ZFP version 1.0.0
 
 Starting with the version 0.1.13 older versions of zfp are no longer supported.
