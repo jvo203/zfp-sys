@@ -1,0 +1,3 @@
+[submodule "zfp"]
+	path = zfp
+	url = git@github.com:LLNL/zfp.git
