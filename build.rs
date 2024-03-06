@@ -6,14 +6,15 @@ use cmake;
 #[cfg(feature = "cuda")]
 use cmake::Config;
 
-use std::env;
-use std::path::PathBuf;
+use std::{env, path::PathBuf};
 
 fn main() {
     let _source_dir = String::from("zfp");
 
     //build zfp with cmake
     let mut config = cmake::Config::new(_source_dir);
+    config.define("BUILD_TESTING", "OFF");
+    config.define("BUILD_UTILITIES", "OFF");
 
     //enable CUDA for faster compression/decompression
     #[cfg(feature = "cuda")]
