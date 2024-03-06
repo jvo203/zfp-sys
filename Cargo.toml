@@ -10,7 +10,7 @@ license = "MIT"
 categories = ["compression", "external-ffi-bindings", "science"]
 
 [build-dependencies]
-bindgen = "0.69.1"
+bindgen = "0.69.4"
 cmake = "0.1"
 
 [features]
