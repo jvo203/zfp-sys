@@ -1,6 +1,6 @@
 [package]
 name = "zfp-sys"
-version = "0.1.14"
+version = "0.1.15"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
 edition = "2021"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
