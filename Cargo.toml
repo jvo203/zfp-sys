@@ -1,6 +1,6 @@
 [package]
 name = "zfp-sys"
-version = "0.1.15"
+version = "0.1.16"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
 edition = "2021"
 description = "Raw Rust bindings to ZFP (https://github.com/LLNL/zfp)."
@@ -10,7 +10,7 @@ license = "MIT"
 categories = ["compression", "external-ffi-bindings", "science"]
 
 [build-dependencies]
-bindgen = "0.69.4"
+bindgen = "0.70"
 cmake = "0.1"
 
 [features]
