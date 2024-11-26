@@ -27,6 +27,13 @@ fn main() {
         config.define("ZFP_WITH_OPENMP", "OFF");
     }
 
+    // Enable tighter errors with proper rounding and reduced bias
+    #[cfg(feature = "round-tight-error")]
+    {
+        config.define("ZFP_ROUNDING_MODE", "ZFP_ROUND_FIRST");
+        config.define("ZFP_WITH_TIGHT_ERROR", "ON");
+    }
+
     let zfp = config.build();
 
     println!("cargo:rustc-link-search=native={}/lib", zfp.display());
